@@ -16,7 +16,13 @@ functions will be called on success. */
 /* Whenever the browser successfully gets co-ordinates of the current position of the user AND the 
 second callback = error callback -> will be called if error getting co ordinations */
 navigator.geolocation.getCurrentPosition(
-  function () {},
+  /* success callback -> called with a parameter called position parameter. Can give it any name we 
+  want. It is JavaScript who will call this function in case of success, and it will pass in an 
+  argument and we can then use that. */
+  function (position) {
+    /* for now, log position to the console */
+    console.log(position);
+  },
   function () {
     alert("Could not get your position");
   }
