@@ -11,19 +11,22 @@ const inputDuration = document.querySelector(".form__input--duration");
 const inputCadence = document.querySelector(".form__input--cadence");
 const inputElevation = document.querySelector(".form__input--elevation");
 
-/* Geolocation API = browser API getCurrentPosition -> this function takes as an input two callback
+/* check geolocator exists */
+if (navigator.geolocation) {
+  /* Geolocation API = browser API getCurrentPosition -> this function takes as an input two callback
 functions will be called on success. */
-/* Whenever the browser successfully gets co-ordinates of the current position of the user AND the 
+  /* Whenever the browser successfully gets co-ordinates of the current position of the user AND the 
 second callback = error callback -> will be called if error getting co ordinations */
-navigator.geolocation.getCurrentPosition(
-  /* success callback -> called with a parameter called position parameter. Can give it any name we 
+  navigator.geolocation.getCurrentPosition(
+    /* success callback -> called with a parameter called position parameter. Can give it any name we 
   want. It is JavaScript who will call this function in case of success, and it will pass in an 
   argument and we can then use that. */
-  function (position) {
-    /* for now, log position to the console */
-    console.log(position);
-  },
-  function () {
-    alert("Could not get your position");
-  }
-);
+    function (position) {
+      /* for now, log position to the console */
+      console.log(position);
+    },
+    function () {
+      alert("Could not get your position");
+    }
+  );
+}
