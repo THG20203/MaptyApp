@@ -22,8 +22,11 @@ second callback = error callback -> will be called if error getting co ordinatio
   want. It is JavaScript who will call this function in case of success, and it will pass in an 
   argument and we can then use that. */
     function (position) {
-      /* for now, log position to the console */
-      console.log(position);
+      /* using destructuring -> create variable called latitude based out of the latitude property 
+      of this object. */
+      const { latitude } = position.coords;
+      const { longitude } = position.coords;
+      console.log(latitude, longitude);
     },
     function () {
       alert("Could not get your position");
