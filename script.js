@@ -26,6 +26,21 @@ second callback = error callback -> will be called if error getting co ordinatio
       of this object. */
       const { latitude } = position.coords;
       const { longitude } = position.coords;
+
+      /* code for when browser is successful with coordinates */
+      /* L is main function leaflet gives us as an entry point. L has couple of methods we can use
+      like map. */
+      const map = L.map("map").setView([51.505, -0.09], 13);
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker([51.5, -0.09])
+        .addTo(map)
+        .bindPopup("A pretty CSS popup.<br> Easily customizable.")
+        .openPopup();
     },
     function () {
       alert("Could not get your position");
