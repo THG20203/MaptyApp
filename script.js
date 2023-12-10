@@ -46,27 +46,29 @@ second callback = error callback -> will be called if error getting co ordinatio
       /* onto map object above can add event listener - type of event click, and callback function.
       When leaflet calls this function, will do so with special mapEvent - created by leaflet. */
       map.on("click", function (mapEvent) {
+        form.classList.remove("hidden");
+
         /* destructure to get latitude and longitude of this object. Remember latlng part of mapEvent object
         when looked at console */
-        const { lat, lng } = mapEvent.latlng;
+        // const { lat, lng } = mapEvent.latlng;
 
         /* Using lat, lng  from above */
-        L.marker([lat, lng])
-          .addTo(map)
-          .bindPopup(
-            L.popup({
-              maxWidth: 250,
-              minWidth: 100,
-              /* autoClose overrides the default behavior of popup closing when another popup is opened so
+        // L.marker([lat, lng])
+        //  .addTo(map)
+        //  .bindPopup(
+        //   L.popup({
+        //      maxWidth: 250,
+        //      minWidth: 100,
+        /* autoClose overrides the default behavior of popup closing when another popup is opened so
               overwriting that */
-              autoClose: false,
-              /* closeOnClick -> prevent popup whenever user clicks on map so make false */
-              closeOnClick: false,
-              className: "running-popup",
-            })
-          )
-          .setPopupContent("Workout")
-          .openPopup();
+        //      autoClose: false,
+        /* closeOnClick -> prevent popup whenever user clicks on map so make false */
+        //      closeOnClick: false,
+        //      className: "running-popup",
+        //    })
+        // )
+        //  .setPopupContent("Workout")
+        //  .openPopup();
       });
     },
     function () {
