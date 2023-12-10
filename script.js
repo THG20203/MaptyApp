@@ -51,7 +51,7 @@ second callback = error callback -> will be called if error getting co ordinatio
         const { lat, lng } = mapEvent.latlng;
 
         /* Using lat, lng  from above */
-        L.marker([lat, lng]).addTo(map).bindPopup("Workout.").openPopup();
+        L.marker([lat, lng]).addTo(map).bindPopup(L.popup({})).openPopup();
       });
     },
     function () {
