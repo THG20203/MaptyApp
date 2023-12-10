@@ -51,7 +51,20 @@ second callback = error callback -> will be called if error getting co ordinatio
         const { lat, lng } = mapEvent.latlng;
 
         /* Using lat, lng  from above */
-        L.marker([lat, lng]).addTo(map).bindPopup(L.popup({})).openPopup();
+        L.marker([lat, lng])
+          .addTo(map)
+          .bindPopup(
+            L.popup({
+              maxWidth: 250,
+              minWidth: 100,
+              /* autoClose overrides the default behavior of popup closing when another popup is opened so
+              overwriting that */
+              autoClose: false,
+              /* closeOnClick -> prevent popup whenever user clicks on map so make false */
+              closeOnClick: false,
+            })
+          )
+          .openPopup();
       });
     },
     function () {
