@@ -26,7 +26,6 @@ second callback = error callback -> will be called if error getting co ordinatio
       of this object. */
       const { latitude } = position.coords;
       const { longitude } = position.coords;
-      console.log(latitude, longitude);
     },
     function () {
       alert("Could not get your position");
