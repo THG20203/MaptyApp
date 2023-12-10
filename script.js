@@ -34,6 +34,7 @@ second callback = error callback -> will be called if error getting co ordinatio
       like map, another = tilelayer -> define tiles of map. Also can display markers */
       /* number after coords array we've added is the zoom level of the map */
       const map = L.map("map").setView(coords, 13);
+      console.log(map);
 
       /* map we see on page made up of small tiles, tiles come from url here, which is from 
       openstreetmap. */
@@ -46,6 +47,8 @@ second callback = error callback -> will be called if error getting co ordinatio
         .addTo(map)
         .bindPopup("A pretty CSS popup.<br> Easily customizable.")
         .openPopup();
+      /* onto map object above can add event listener */
+      //  map.on();
     },
     function () {
       alert("Could not get your position");
