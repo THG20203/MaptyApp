@@ -27,17 +27,20 @@ second callback = error callback -> will be called if error getting co ordinatio
       const { latitude } = position.coords;
       const { longitude } = position.coords;
 
+      const coords = [latitude, longitude];
+
       /* code for when browser is successful with coordinates */
       /* L is main function leaflet gives us as an entry point. L has couple of methods we can use
       like map, another = tilelayer -> define tiles of map. Also can display markers */
-      const map = L.map("map").setView([51.505, -0.09], 13);
+      /* number after coords array we've added is the zoom level of the map */
+      const map = L.map("map").setView(coords, 13);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker([51.5, -0.09])
+      L.marker(coords)
         .addTo(map)
         .bindPopup("A pretty CSS popup.<br> Easily customizable.")
         .openPopup();
