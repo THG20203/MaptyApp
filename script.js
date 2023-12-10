@@ -38,17 +38,21 @@ second callback = error callback -> will be called if error getting co ordinatio
 
       /* map we see on page made up of small tiles, tiles come from url here, which is from 
       openstreetmap. */
-      L.tileLayer("https://tile.openstreetmap.org{z}/{x}/{y}.png", {
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker(coords)
-        .addTo(map)
-        .bindPopup("A pretty CSS popup.<br> Easily customizable.")
-        .openPopup();
-      /* onto map object above can add event listener */
-      //  map.on();
+      /* onto map object above can add event listener - type of event click, and callback function.
+      When leaflet calls this function, will do so with special mapEvent - created by leaflet. */
+      map.on("click", function (mapEvent) {
+        /* destructure to get latitude and longitude of this object. Remember latlng part of mapEvent object
+        when looked at console */
+        const { lat, lng } = mapEvent.latlng;
+
+        /* Using lat, lng  from above */
+        L.marker([lat, lng]).addTo(map).bindPopup("Workout.").openPopup();
+      });
     },
     function () {
       alert("Could not get your position");
