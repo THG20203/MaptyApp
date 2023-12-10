@@ -62,8 +62,10 @@ second callback = error callback -> will be called if error getting co ordinatio
               autoClose: false,
               /* closeOnClick -> prevent popup whenever user clicks on map so make false */
               closeOnClick: false,
+              className: "running-popup",
             })
           )
+          .setPopupContent("Workout")
           .openPopup();
       });
     },
