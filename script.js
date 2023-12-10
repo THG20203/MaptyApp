@@ -37,7 +37,7 @@ second callback = error callback -> will be called if error getting co ordinatio
 
       /* map we see on page made up of small tiles, tiles come from url here, which is from 
       openstreetmap. */
-      L.tileLayer("https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+      L.tileLayer("https://tile.openstreetmap.org{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
