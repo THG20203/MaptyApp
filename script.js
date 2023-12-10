@@ -29,7 +29,7 @@ second callback = error callback -> will be called if error getting co ordinatio
 
       /* code for when browser is successful with coordinates */
       /* L is main function leaflet gives us as an entry point. L has couple of methods we can use
-      like map. */
+      like map, another = tilelayer -> define tiles of map. Also can display markers */
       const map = L.map("map").setView([51.505, -0.09], 13);
 
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
