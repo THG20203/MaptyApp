@@ -48,28 +48,6 @@ second callback = error callback -> will be called if error getting co ordinatio
       map.on("click", function (mapEvent) {
         form.classList.remove("hidden");
         inputDistance.focus();
-
-        /* destructure to get latitude and longitude of this object. Remember latlng part of mapEvent object
-        when looked at console */
-        // const { lat, lng } = mapEvent.latlng;
-
-        /* Using lat, lng  from above */
-        // L.marker([lat, lng])
-        //  .addTo(map)
-        //  .bindPopup(
-        //   L.popup({
-        //      maxWidth: 250,
-        //      minWidth: 100,
-        /* autoClose overrides the default behavior of popup closing when another popup is opened so
-              overwriting that */
-        //      autoClose: false,
-        /* closeOnClick -> prevent popup whenever user clicks on map so make false */
-        //      closeOnClick: false,
-        //      className: "running-popup",
-        //    })
-        // )
-        //  .setPopupContent("Workout")
-        //  .openPopup();
       });
     },
     function () {
@@ -77,3 +55,27 @@ second callback = error callback -> will be called if error getting co ordinatio
     }
   );
 }
+
+form.addEventListener("submit", function () {
+  /* destructure to get latitude and longitude of this object. Remember latlng part of mapEvent object
+        when looked at console */
+  const { lat, lng } = mapEvent.latlng;
+
+  /* Using lat, lng  from above */
+  L.marker([lat, lng])
+    .addTo(map)
+    .bindPopup(
+      L.popup({
+        maxWidth: 250,
+        minWidth: 100,
+        /* autoClose overrides the default behavior of popup closing when another popup is opened so
+              overwriting that */
+        autoClose: false,
+        /* closeOnClick -> prevent popup whenever user clicks on map so make false */
+        closeOnClick: false,
+        className: "running-popup",
+      })
+    )
+    .setPopupContent("Workout")
+    .openPopup();
+});
