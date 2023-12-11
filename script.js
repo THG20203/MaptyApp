@@ -47,6 +47,7 @@ second callback = error callback -> will be called if error getting co ordinatio
       When leaflet calls this function, will do so with special mapEvent - created by leaflet. */
       map.on("click", function (mapEvent) {
         form.classList.remove("hidden");
+        inputDistance.focus();
 
         /* destructure to get latitude and longitude of this object. Remember latlng part of mapEvent object
         when looked at console */
